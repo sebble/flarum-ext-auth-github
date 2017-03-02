@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitHub;
+namespace Flarum\Auth\GitLab;
 
 use Flarum\Forum\AuthenticationResponseFactory;
 use Flarum\Forum\Controller\AbstractOAuth2Controller;
 use Flarum\Settings\SettingsRepositoryInterface;
-use League\OAuth2\Client\Provider\Github;
+use League\OAuth2\Client\Provider\Gitlab;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
-class GitHubAuthController extends AbstractOAuth2Controller
+class GitLabAuthController extends AbstractOAuth2Controller
 {
     /**
      * @var SettingsRepositoryInterface
@@ -39,9 +39,9 @@ class GitHubAuthController extends AbstractOAuth2Controller
      */
     protected function getProvider($redirectUri)
     {
-        return new Github([
-            'clientId'     => $this->settings->get('flarum-auth-github.client_id'),
-            'clientSecret' => $this->settings->get('flarum-auth-github.client_secret'),
+        return new Gitlab([
+            'clientId'     => $this->settings->get('flarum-auth-gitlab.client_id'),
+            'clientSecret' => $this->settings->get('flarum-auth-gitlab.client_secret'),
             'redirectUri'  => $redirectUri
         ]);
     }
@@ -51,7 +51,7 @@ class GitHubAuthController extends AbstractOAuth2Controller
      */
     protected function getAuthorizationUrlOptions()
     {
-        return ['scope' => ['user:email']];
+        return ['scope' => ['read_user']];
     }
 
     /**

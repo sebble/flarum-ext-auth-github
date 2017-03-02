@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitHub\Listener;
+namespace Flarum\Auth\GitLab\Listener;
 
 use Flarum\Event\ConfigureForumRoutes;
 use Illuminate\Contracts\Events\Dispatcher;
 
-class AddGitHubAuthRoute
+class AddGitLabAuthRoute
 {
     /**
      * @param Dispatcher $events
@@ -29,6 +29,6 @@ class AddGitHubAuthRoute
      */
     public function configureForumRoutes(ConfigureForumRoutes $event)
     {
-        $event->get('/auth/github', 'auth.github', 'Flarum\Auth\GitHub\GitHubAuthController');
+        $event->get('/auth/gitlab', 'auth.gitlab', 'Flarum\Auth\GitLab\GitLabAuthController');
     }
 }

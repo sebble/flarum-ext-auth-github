@@ -1,7 +1,7 @@
 import app from 'flarum/app';
 
-import GithubSettingsModal from 'flarum/auth/github/components/GithubSettingsModal';
+import GitlabSettingsModal from 'flarum/auth/gitlab/components/GitlabSettingsModal';
 
-app.initializers.add('flarum-auth-github', () => {
-  app.extensionSettings['flarum-auth-github'] = () => app.modal.show(new GithubSettingsModal());
+app.initializers.add('flarum-auth-gitlab', () => {
+  app.extensionSettings['flarum-auth-gitlab'] = () => app.modal.show(new GitlabSettingsModal());
 });

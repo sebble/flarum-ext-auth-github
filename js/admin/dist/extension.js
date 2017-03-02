@@ -1,31 +1,31 @@
 'use strict';
 
-System.register('flarum/auth/github/components/GithubSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
+System.register('flarum/auth/gitlab/components/GitlabSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
   "use strict";
 
-  var SettingsModal, GithubSettingsModal;
+  var SettingsModal, GitlabSettingsModal;
   return {
     setters: [function (_flarumComponentsSettingsModal) {
       SettingsModal = _flarumComponentsSettingsModal.default;
     }],
     execute: function () {
-      GithubSettingsModal = function (_SettingsModal) {
-        babelHelpers.inherits(GithubSettingsModal, _SettingsModal);
+      GitlabSettingsModal = function (_SettingsModal) {
+        babelHelpers.inherits(GitlabSettingsModal, _SettingsModal);
 
-        function GithubSettingsModal() {
-          babelHelpers.classCallCheck(this, GithubSettingsModal);
-          return babelHelpers.possibleConstructorReturn(this, (GithubSettingsModal.__proto__ || Object.getPrototypeOf(GithubSettingsModal)).apply(this, arguments));
+        function GitlabSettingsModal() {
+          babelHelpers.classCallCheck(this, GitlabSettingsModal);
+          return babelHelpers.possibleConstructorReturn(this, (GitlabSettingsModal.__proto__ || Object.getPrototypeOf(GitlabSettingsModal)).apply(this, arguments));
         }
 
-        babelHelpers.createClass(GithubSettingsModal, [{
+        babelHelpers.createClass(GitlabSettingsModal, [{
           key: 'className',
           value: function className() {
-            return 'GithubSettingsModal Modal--small';
+            return 'GitlabSettingsModal Modal--small';
           }
         }, {
           key: 'title',
           value: function title() {
-            return app.translator.trans('flarum-auth-github.admin.github_settings.title');
+            return app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.title');
           }
         }, {
           key: 'form',
@@ -36,45 +36,45 @@ System.register('flarum/auth/github/components/GithubSettingsModal', ['flarum/co
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-github.admin.github_settings.client_id_label')
+                app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_id_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-github.client_id') })
+              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-gitlab.client_id') })
             ), m(
               'div',
               { className: 'Form-group' },
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-github.admin.github_settings.client_secret_label')
+                app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_secret_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-github.client_secret') })
+              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-gitlab.client_secret') })
             )];
           }
         }]);
-        return GithubSettingsModal;
+        return GitlabSettingsModal;
       }(SettingsModal);
 
-      _export('default', GithubSettingsModal);
+      _export('default', GitlabSettingsModal);
     }
   };
 });;
 'use strict';
 
-System.register('flarum/auth/github/main', ['flarum/app', 'flarum/auth/github/components/GithubSettingsModal'], function (_export, _context) {
+System.register('flarum/auth/gitlab/main', ['flarum/app', 'flarum/auth/gitlab/components/GitlabSettingsModal'], function (_export, _context) {
   "use strict";
 
-  var app, GithubSettingsModal;
+  var app, GitlabSettingsModal;
   return {
     setters: [function (_flarumApp) {
       app = _flarumApp.default;
-    }, function (_flarumAuthGithubComponentsGithubSettingsModal) {
-      GithubSettingsModal = _flarumAuthGithubComponentsGithubSettingsModal.default;
+    }, function (_flarumAuthGitlabComponentsGitlabSettingsModal) {
+      GitlabSettingsModal = _flarumAuthGitlabComponentsGitlabSettingsModal.default;
     }],
     execute: function () {
 
-      app.initializers.add('flarum-auth-github', function () {
-        app.extensionSettings['flarum-auth-github'] = function () {
-          return app.modal.show(new GithubSettingsModal());
+      app.initializers.add('flarum-auth-gitlab', function () {
+        app.extensionSettings['flarum-auth-gitlab'] = function () {
+          return app.modal.show(new GitlabSettingsModal());
         };
       });
     }

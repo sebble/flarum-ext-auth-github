@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-use Flarum\Auth\GitHub\Listener;
+use Flarum\Auth\GitLab\Listener;
 use Illuminate\Contracts\Events\Dispatcher;
 
 return function (Dispatcher $events) {
     $events->subscribe(Listener\AddClientAssets::class);
-    $events->subscribe(Listener\AddGitHubAuthRoute::class);
+    $events->subscribe(Listener\AddGitLabAuthRoute::class);
 };

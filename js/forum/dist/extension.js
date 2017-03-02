@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('flarum/auth/github/main', ['flarum/extend', 'flarum/app', 'flarum/components/LogInButtons', 'flarum/components/LogInButton'], function (_export, _context) {
+System.register('flarum/auth/gitlab/main', ['flarum/extend', 'flarum/app', 'flarum/components/LogInButtons', 'flarum/components/LogInButton'], function (_export, _context) {
   "use strict";
 
   var extend, app, LogInButtons, LogInButton;
@@ -16,15 +16,15 @@ System.register('flarum/auth/github/main', ['flarum/extend', 'flarum/app', 'flar
     }],
     execute: function () {
 
-      app.initializers.add('flarum-auth-github', function () {
+      app.initializers.add('flarum-auth-gitlab', function () {
         extend(LogInButtons.prototype, 'items', function (items) {
-          items.add('github', m(
+          items.add('gitlab', m(
             LogInButton,
             {
-              className: 'Button LogInButton--github',
-              icon: 'github',
-              path: '/auth/github' },
-            app.translator.trans('flarum-auth-github.forum.log_in.with_github_button')
+              className: 'Button LogInButton--gitlab',
+              icon: 'gitlab',
+              path: '/auth/gitlab' },
+            app.translator.trans('flarum-auth-gitlab.forum.log_in.with_gitlab_button')
           ));
         });
       });
