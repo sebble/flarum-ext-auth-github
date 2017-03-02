@@ -48,6 +48,15 @@ System.register('sebble/auth/gitlab/components/GitlabSettingsModal', ['flarum/co
                 app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_secret_label')
               ),
               m('input', { className: 'FormControl', bidi: this.setting('sebble-auth-gitlab.client_secret') })
+            ), m(
+              'div',
+              { className: 'Form-group' },
+              m(
+                'label',
+                null,
+                app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_domain_label')
+              ),
+              m('input', { className: 'FormControl', bidi: this.setting('sebble-auth-gitlab.client_domain') })
             )];
           }
         }]);
