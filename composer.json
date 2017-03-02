@@ -3,7 +3,7 @@
     "description": "Allow users to log in with GitLab.",
     "type": "flarum-extension",
     "keywords": ["authentication"],
-    "version": "^0.1.0-beta.8.3.2","
+    "version": "^0.1.0-beta.8.3.3",
     "license": "MIT",
     "authors": [
         {
