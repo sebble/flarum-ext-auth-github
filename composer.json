@@ -3,7 +3,7 @@
     "description": "Allow users to log in with GitLab.",
     "type": "flarum-extension",
     "keywords": ["authentication"],
-    "version": "v0.1.0-beta.8.3.5",
+    "version": "v0.1.0-beta.8.3.6",
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +21,7 @@
     },
     "require": {
         "flarum/core": "^0.1.0-beta.6",
-        "league/oauth2-gitlab": "^1.1.0"
+        "omines/oauth2-gitlab": "^1.1.0"
     },
     "autoload": {
         "psr-4": {
