@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitLab\Listener;
+namespace Sebble\Auth\GitLab\Listener;
 
 use Flarum\Event\ConfigureWebApp;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -34,14 +34,14 @@ class AddClientAssets
                 __DIR__.'/../../js/forum/dist/extension.js',
                 __DIR__.'/../../less/forum/extension.less'
             ]);
-            $event->addBootstrapper('flarum/auth/gitlab/main');
+            $event->addBootstrapper('sebble/auth/gitlab/main');
         }
 
         if ($event->isAdmin()) {
             $event->addAssets([
                 __DIR__.'/../../js/admin/dist/extension.js'
             ]);
-            $event->addBootstrapper('flarum/auth/gitlab/main');
+            $event->addBootstrapper('sebble/auth/gitlab/main');
         }
     }
 }

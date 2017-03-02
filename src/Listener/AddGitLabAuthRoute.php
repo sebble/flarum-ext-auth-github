@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitLab\Listener;
+namespace Sebble\Auth\GitLab\Listener;
 
 use Flarum\Event\ConfigureForumRoutes;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -29,6 +29,6 @@ class AddGitLabAuthRoute
      */
     public function configureForumRoutes(ConfigureForumRoutes $event)
     {
-        $event->get('/auth/gitlab', 'auth.gitlab', 'Flarum\Auth\GitLab\GitLabAuthController');
+        $event->get('/auth/gitlab', 'auth.gitlab', 'Sebble\Auth\GitLab\GitLabAuthController');
     }
 }

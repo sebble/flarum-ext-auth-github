@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Auth\GitLab;
+namespace Sebble\Auth\GitLab;
 
 use Flarum\Forum\AuthenticationResponseFactory;
 use Flarum\Forum\Controller\AbstractOAuth2Controller;
 use Flarum\Settings\SettingsRepositoryInterface;
-use League\OAuth2\Client\Provider\Gitlab;
+use Omines\OAuth2\Client\Provider\Gitlab;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
 class GitLabAuthController extends AbstractOAuth2Controller
@@ -40,8 +40,8 @@ class GitLabAuthController extends AbstractOAuth2Controller
     protected function getProvider($redirectUri)
     {
         return new Gitlab([
-            'clientId'     => $this->settings->get('flarum-auth-gitlab.client_id'),
-            'clientSecret' => $this->settings->get('flarum-auth-gitlab.client_secret'),
+            'clientId'     => $this->settings->get('sebble-auth-gitlab.client_id'),
+            'clientSecret' => $this->settings->get('sebble-auth-gitlab.client_secret'),
             'redirectUri'  => $redirectUri
         ]);
     }

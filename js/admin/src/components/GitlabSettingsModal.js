@@ -6,19 +6,19 @@ export default class GitlabSettingsModal extends SettingsModal {
   }
 
   title() {
-    return app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.title');
+    return app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.title');
   }
 
   form() {
     return [
       <div className="Form-group">
-        <label>{app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_id_label')}</label>
-        <input className="FormControl" bidi={this.setting('flarum-auth-gitlab.client_id')}/>
+        <label>{app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_id_label')}</label>
+        <input className="FormControl" bidi={this.setting('sebble-auth-gitlab.client_id')}/>
       </div>,
 
       <div className="Form-group">
-        <label>{app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_secret_label')}</label>
-        <input className="FormControl" bidi={this.setting('flarum-auth-gitlab.client_secret')}/>
+        <label>{app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_secret_label')}</label>
+        <input className="FormControl" bidi={this.setting('sebble-auth-gitlab.client_secret')}/>
       </div>
     ];
   }

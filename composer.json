@@ -3,7 +3,7 @@
     "description": "Allow users to log in with GitLab.",
     "type": "flarum-extension",
     "keywords": ["authentication"],
-    "version": "v0.1.0-beta.8.3.6",
+    "version": "v0.1.0-beta.8.3.7",
     "license": "MIT",
     "authors": [
         {
@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Flarum\\Auth\\GitLab\\": "src/"
+            "Sebble\\Auth\\GitLab\\": "src/"
         }
     },
     "extra": {

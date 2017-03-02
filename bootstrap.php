@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Flarum\Auth\GitLab\Listener;
+use Sebble\Auth\GitLab\Listener;
 use Illuminate\Contracts\Events\Dispatcher;
 
 return function (Dispatcher $events) {

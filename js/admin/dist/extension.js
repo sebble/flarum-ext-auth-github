@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('flarum/auth/gitlab/components/GitlabSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
+System.register('sebble/auth/gitlab/components/GitlabSettingsModal', ['flarum/components/SettingsModal'], function (_export, _context) {
   "use strict";
 
   var SettingsModal, GitlabSettingsModal;
@@ -25,7 +25,7 @@ System.register('flarum/auth/gitlab/components/GitlabSettingsModal', ['flarum/co
         }, {
           key: 'title',
           value: function title() {
-            return app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.title');
+            return app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.title');
           }
         }, {
           key: 'form',
@@ -36,18 +36,18 @@ System.register('flarum/auth/gitlab/components/GitlabSettingsModal', ['flarum/co
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_id_label')
+                app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_id_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-gitlab.client_id') })
+              m('input', { className: 'FormControl', bidi: this.setting('sebble-auth-gitlab.client_id') })
             ), m(
               'div',
               { className: 'Form-group' },
               m(
                 'label',
                 null,
-                app.translator.trans('flarum-auth-gitlab.admin.gitlab_settings.client_secret_label')
+                app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_secret_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-gitlab.client_secret') })
+              m('input', { className: 'FormControl', bidi: this.setting('sebble-auth-gitlab.client_secret') })
             )];
           }
         }]);
@@ -60,20 +60,20 @@ System.register('flarum/auth/gitlab/components/GitlabSettingsModal', ['flarum/co
 });;
 'use strict';
 
-System.register('flarum/auth/gitlab/main', ['flarum/app', 'flarum/auth/gitlab/components/GitlabSettingsModal'], function (_export, _context) {
+System.register('sebble/auth/gitlab/main', ['flarum/app', 'sebble/auth/gitlab/components/GitlabSettingsModal'], function (_export, _context) {
   "use strict";
 
   var app, GitlabSettingsModal;
   return {
     setters: [function (_flarumApp) {
       app = _flarumApp.default;
-    }, function (_flarumAuthGitlabComponentsGitlabSettingsModal) {
-      GitlabSettingsModal = _flarumAuthGitlabComponentsGitlabSettingsModal.default;
+    }, function (_sebbleAuthGitlabComponentsGitlabSettingsModal) {
+      GitlabSettingsModal = _sebbleAuthGitlabComponentsGitlabSettingsModal.default;
     }],
     execute: function () {
 
-      app.initializers.add('flarum-auth-gitlab', function () {
-        app.extensionSettings['flarum-auth-gitlab'] = function () {
+      app.initializers.add('sebble-auth-gitlab', function () {
+        app.extensionSettings['sebble-auth-gitlab'] = function () {
           return app.modal.show(new GitlabSettingsModal());
         };
       });
