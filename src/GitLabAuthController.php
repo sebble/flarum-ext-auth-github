@@ -42,7 +42,8 @@ class GitLabAuthController extends AbstractOAuth2Controller
         return new Gitlab([
             'clientId'     => $this->settings->get('sebble-auth-gitlab.client_id'),
             'clientSecret' => $this->settings->get('sebble-auth-gitlab.client_secret'),
-            'redirectUri'  => $redirectUri
+            'redirectUri'  => $redirectUri,
+            'domain'       => $this->settings->get('sebble-auth-gitlab.client_domain')
         ]);
     }
 
@@ -60,7 +61,7 @@ class GitLabAuthController extends AbstractOAuth2Controller
     protected function getIdentification(ResourceOwnerInterface $resourceOwner)
     {
         return [
-            'email' => $resourceOwner->getEmail() ?: $this->getEmailFromApi()
+            'email' => $resourceOwner->getEmail()
         ];
     }
 
@@ -70,23 +71,8 @@ class GitLabAuthController extends AbstractOAuth2Controller
     protected function getSuggestions(ResourceOwnerInterface $resourceOwner)
     {
         return [
-            'username' => $resourceOwner->getNickname(),
-            'avatarUrl' => array_get($resourceOwner->toArray(), 'avatar_url')
+            'username' => $resourceOwner->getUsername()
+            //'avatarUrl' => array_get($resourceOwner->toArray(), 'avatar_url')
         ];
-    }
-
-    protected function getEmailFromApi()
-    {
-        $url = $this->provider->apiDomain.'/user/emails';
-
-        $emails = $this->provider->getResponse(
-            $this->provider->getAuthenticatedRequest('GET', $url, $this->token)
-        );
-
-        foreach ($emails as $email) {
-            if ($email['primary'] && $email['verified']) {
-                return $email['email'];
-            }
-        }
     }
 }

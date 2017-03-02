@@ -19,6 +19,11 @@ export default class GitlabSettingsModal extends SettingsModal {
       <div className="Form-group">
         <label>{app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_secret_label')}</label>
         <input className="FormControl" bidi={this.setting('sebble-auth-gitlab.client_secret')}/>
+      </div>,
+
+      <div className="Form-group">
+        <label>{app.translator.trans('sebble-auth-gitlab.admin.gitlab_settings.client_domain_label')}</label>
+        <input className="FormControl" bidi={this.setting('sebble-auth-gitlab.client_domain')}/>
       </div>
     ];
   }
